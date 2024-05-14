@@ -8,7 +8,7 @@ from Controllers.PadraoController import *
 def login_page():
     Apelido = None
     Password = None
-    ut.Divisor('Gerenciador de Veículos - Login', 'graph-up-arrow', 'rgb(20,80,90)', 'Login01')
+    ut.Divisor('Gerenciador de Veículos - Login', 'car-front-fill', 'rgb(20,80,90)', 'Login01')
     st.write('\n \n')
     # Linhas 
     row_1_col1, row_1_col2, row_1_col3 = st.columns([3, 3 ,3])  
