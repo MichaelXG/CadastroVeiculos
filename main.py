@@ -1,6 +1,5 @@
 import streamlit as st
 import streamlit_antd_components as sac
-import Utils as ut
 import pages.Veiculos.FormVeiculos as fv  
 import pages.Veiculos.FormPesquisaVeiculos as fpv  
 from pages.Home.Create_Home import Create_Home    
@@ -10,11 +9,11 @@ from Controllers.PadraoController import *
 def Main():
     # Limpar os parâmetros necessários aqui
     # Por exemplo, você pode limpar os parâmetros da sessão do Streamlit:
-    st.session_state.modelo = None
-    st.session_state.ano = None
-    st.session_state.descricao = ''
-    st.session_state.valor_entrada = None
-    st.session_state.parcelas = None
+    st.session_state.Modelo = None
+    st.session_state.Ano = None
+    st.session_state.Descricao = ''
+    st.session_state.Valor_Entrada = None
+    st.session_state.Parcelas = None
     
     # Menu
     with st.sidebar:

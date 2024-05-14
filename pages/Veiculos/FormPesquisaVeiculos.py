@@ -15,13 +15,13 @@ def Form_PesquisaVeiculos():
         
          # Linha 00
         with row_0_col1:
-            prioridade = st.selectbox('Modelo', modelos_carros_p, index=0, placeholder='Selecione o Modelo do Veiculos...')
+            Modelo = st.selectbox('Modelo', modelos_carros_p, index=0, placeholder='Selecione o Modelo do Veiculos...')
                 
         with row_0_col2:
-            categoria = st.selectbox('Ano', anos_p, index=0, placeholder='Selecione a Ano do Veiculos...')
+            Ano = st.selectbox('Ano', anos_p, index=0, placeholder='Selecione a Ano do Veiculos...')
         
         with row_0_col3:
-            concluida = st.selectbox('Parcelas', parcelas_p, index=0, placeholder='Selecione a Parcela...')
+            Parcelas = st.selectbox('Parcelas', parcelas_p, index=0, placeholder='Selecione a Parcela...')
  
         with row_1_col1:
             sac.menu([sac.MenuItem(type='divider')], color='rgb(20,80,90)', open_all=False, return_index=False, index=None, key='key_divisor')
@@ -44,9 +44,9 @@ def Form_PesquisaVeiculos():
             st.write('') 
             
         if form_submit_button_peqsuisar:
-            if prioridade is not None and categoria is not None and concluida is not None:
+            if Modelo is not None and Ano is not None and Parcelas is not None:
                 # Chama a função listar_Veiculos com os filtros selecionados
-                df_filtrado = listar_veiculos(prioridade, categoria, concluida)
+                df_filtrado = listar_veiculos(Modelo, Ano, Parcelas)
 
                 # Mostra as Veiculos filtradas em um DataFrame do Pandas
                 if not df_filtrado.empty:

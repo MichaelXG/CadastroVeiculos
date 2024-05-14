@@ -127,3 +127,8 @@ _casefold = lambda n : n.casefold()
 
 # Verificar se é número
 _isnumeric = lambda n : n.isnumeric() 
+
+
+# Função para formatar no padrão brasileiro
+def format_money(valor):
+    return f'R$ {valor:,.2f}'.replace(',', 'v').replace('.', ',').replace('v', '.')

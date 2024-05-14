@@ -14,14 +14,14 @@ def Form_veiculos():
     if 'Ano' not in st.session_state:
         st.session_state.Ano = None     
         
-    if 'descricao' not in st.session_state:
-        st.session_state.descricao = ''
+    if 'Descricao' not in st.session_state:
+        st.session_state.Descricao = ''
     
-    if 'valor_entrada' not in st.session_state:
-        st.session_state.valor_entrada = 0
+    if 'Valor_Entrada' not in st.session_state:
+        st.session_state.Valor_Entrada = 0
         
-    if 'parcelas' not in st.session_state:
-        st.session_state.parcelas = None
+    if 'Parcelas' not in st.session_state:
+        st.session_state.Parcelas = None
  
     ut.Divisor('Adicionar veiculos', 'car-front-fill', 'rgb(20,80,90)', 'key_veiculo1')
 
@@ -33,13 +33,13 @@ def Form_veiculos():
         
         # Linha 00
         with row_0_col1:
-            st.session_state.modelo = st.selectbox('Modelo', modelos_carros, key='key_modelos_carros', index=None, placeholder='Selecione o modelo do veículo...')
+            st.session_state.Modelo = st.selectbox('Modelo', modelos_carros, key='key_Modelos_carros', index=None, placeholder='Selecione o Modelo do veículo...')
             if not st.session_state.Modelo:
                 st.error('O campo "Modelo" é Obrigatorio.')
                 
         with row_0_col2:
-            st.session_state.ano = st.selectbox('Ano', anos_dinamico, key='key_ano', index=None, placeholder='Selecione o Ano do veículo...')
-            if not st.session_state.ano:
+            st.session_state.Ano = st.selectbox('Ano', anos_dinamico, key='key_Ano', index=None, placeholder='Selecione o Ano do veículo...')
+            if not st.session_state.Ano:
                 st.error('O campo "Ano" é Obrigatorio.')        
         
         with row_0_col3:
@@ -47,8 +47,8 @@ def Form_veiculos():
             
         # Linha 01
         with row_1_col1:
-            st.session_state.descricao = st.text_input('Descrição', key='key_Descricao')
-            if not st.session_state.descricao:
+            st.session_state.Descricao = st.text_input('Descrição', key='key_Descricao')
+            if not st.session_state.Descricao:
                 st.error('O campo "Descrição" é Obrigatorio.')
         
         with row_1_col2:   
@@ -56,14 +56,14 @@ def Form_veiculos():
         
         # Linha 02
         with row_2_col1:
-            st.session_state.valor_entrada = st.number_input('Vr. Entrada', key='key_valor_entrada', min_value=1.00, max_value=100000.00, step=1.00, format="%.2f")
+            st.session_state.Valor_Entrada = st.number_input('Vr. Entrada', key='key_Valor_Entrada', min_value=1.00, max_value=100000.00, step=1.00, format="%.2f")
 
-            if not st.session_state.valor_entrada:
+            if not st.session_state.Valor_Entrada:
                 st.error('O campo "Vr. Entrada" é Obrigatorio.')
         
         with row_2_col2:   
-            st.session_state.parcelas = st.selectbox('Parcelas', parcelas, key='key_parcelas', index=None, placeholder='Selecione as parcelas...')
-            if not st.session_state.parcelas:
+            st.session_state.Parcelas = st.selectbox('Parcelas', parcelas, key='key_Parcelas', index=None, placeholder='Selecione as Parcelas...')
+            if not st.session_state.Parcelas:
                 st.error('O campo "Parcelas" é Obrigatorio.')   
          
         # Linha 04        
@@ -88,8 +88,8 @@ def Form_veiculos():
             st.write('') 
             
         if form_submit_button_veiculo:
-            if st.session_state.modelo and st.session_state.ano and st.session_state.descricao and st.session_state.valor_entrada and st.session_state.parcelas:
-                adicionar_veiculos(st.session_state.modelo, st.session_state.ano, st.session_state.descricao, st.session_state.valor_entrada, st.session_state.parcelas)           
+            if st.session_state.Modelo and st.session_state.Ano and st.session_state.Descricao and st.session_state.Valor_Entrada and st.session_state.Parcelas:
+                adicionar_veiculos(st.session_state.Modelo, st.session_state.Ano, st.session_state.Descricao, st.session_state.Valor_Entrada, st.session_state.Parcelas)           
             else:
                 ut.Alerta('','Parametros para incluir um veículo incompleto')   
     
