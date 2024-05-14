@@ -1,7 +1,6 @@
 '''
 Class for do PadraoController
 '''
-import random
 import datetime
 
 # criar lista de Login
@@ -20,8 +19,6 @@ veiculos = [{"Modelo":'Creta', "Ano":'2017'," Descrição": 'Creta pulse 1.6',"V
 
 import Utils as ut
 import pandas as pd 
-import os
-import streamlit_antd_components as sac
 import streamlit as st
 
 def calcular_Valor_Parcelas(Parcelas, Valor_Entrada):
@@ -36,18 +33,17 @@ def calcular_Valor_Total(Valor_Entrada):
    
 #  Função para adicionar uma novo veículo
 #  Modelo, ano, descrição, valor de entrada, valor de parcela e valor total.
-def adicionar_veiculos(Modelo, Ano, descricao, Valor_Entrada, Parcelas):
+def adicionar_veiculos(Modelo, Ano, Descricao, Valor_Entrada, Parcelas):
     veiculo = {
         "Modelo": Modelo,
         "Ano": Ano,
-        "Descrição": descricao,
+        "Descrição": Descricao,
         "Vr. Entrada": Valor_Entrada,
         "Parcelas": Parcelas,
         "Vr. Parcela": calcular_Valor_Parcelas(Parcelas, Valor_Entrada),
         "Vr. Total": calcular_Valor_Total(Valor_Entrada)
     }
     
-    st.write(veiculo)
     veiculos.append(veiculo)
     st.write("Veículo adicionado com sucesso!")
 
@@ -57,6 +53,9 @@ def listar_veiculos(pModelo, pAno, pParcelas):
         return pd.DataFrame()  # Retorna um DataFrame vazio se não houver veiculos
         
     df = pd.DataFrame(veiculos)
+    df['Vr. Entrada'] = df['Vr. Entrada'].map(ut.format_money)
+    df['Vr. Parcela'] = df['Vr. Parcela'].map(ut.format_money)
+    df['Vr. Total']   = df['Vr. Total'].map(ut.format_money)
     df.insert(0, 'ID', range(1, len(df) + 1))
     
     # Aplicar os filtros
