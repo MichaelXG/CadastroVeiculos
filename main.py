@@ -57,7 +57,7 @@ if "logged_in" not in st.session_state:
  
 st.set_page_config(
     page_title="Veículos",
-    page_icon="🧊",
+    page_icon=":oncoming_automobile:",
     layout="wide",
     initial_sidebar_state="expanded"
 )   
